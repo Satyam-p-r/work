@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="KCR Events by Ritesh Joshi, event management and wedding planning in Jodhpur, Rajasthan."
+    />
+    <title>KCR Events | Celebrations with a Royal Soul</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #100e0b;
+        --gold: #c9a66b;
+        --cream: #f5ebd9;
+        --muted: #b9ad9c;
+        --line: #c9a66445;
+        --serif: "Cormorant Garamond", Georgia, serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--cream);
+        font:
+          14px/1.8 Manrope,
+          Arial,
+          sans-serif;
+      }
+      body.lock {
+        overflow: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:focus-visible,
+      a:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 5px;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--serif);
+        font-weight: 500;
+        line-height: 1.02;
+      }
+      h2 {
+        font-size: clamp(48px, 7vw, 92px);
+      }
+      em {
+        color: var(--gold);
+        font-weight: 400;
+      }
+      p {
+        color: var(--muted);
+      }
+      .eyebrow {
+        font-size: 10px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .wrap {
+        width: min(1160px, 88%);
+        margin: auto;
+      }
+      .section {
+        padding: 110px 0;
+      }
+      .ornament {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--gold);
+        margin: 22px 0;
+      }
+      .ornament:before,
+      .ornament:after {
+        content: "";
+        width: 55px;
+        height: 1px;
+        background: var(--line);
+      }
+      .center {
+        text-align: center;
+      }
+      .center .ornament {
+        justify-content: center;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        padding: 15px 25px;
+        border: 1px solid var(--gold);
+        background: var(--gold);
+        color: var(--ink);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 10px;
+        font-weight: 700;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        background: var(--cream);
+        border-color: var(--cream);
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--cream);
+      }
+      .btn.ghost:hover {
+        background: var(--gold);
+        color: var(--ink);
+      }
+      header {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 30;
+        background: #100e0be8;
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(12px);
+      }
+      .bar {
+        height: 83px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 88%;
+        margin: auto;
+      }
+      .brand {
+        display: block;
+        font: 600 29px/1 var(--serif);
+        letter-spacing: 0.12em;
+        color: var(--gold);
+      }
+      .brand small {
+        display: block;
+        font:
+          600 8px/1.5 Manrope,
+          sans-serif;
+        letter-spacing: 0.25em;
+        color: var(--cream);
+        margin-top: 6px;
+      }
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        background: none;
+        border: 0;
+        color: var(--cream);
+        letter-spacing: 0.2em;
+        font-size: 10px;
+        text-transform: uppercase;
+        padding: 12px 0 12px 12px;
+      }
+      .bars {
+        width: 36px;
+        height: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .bars i {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: var(--gold);
+      }
+      .nav {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        width: 100%;
+        height: 100dvh;
+        max-width: none;
+        max-height: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: radial-gradient(ellipse at 80% 20%, #35261a, #100e0b 65%);
+        color: var(--cream);
+        overflow: auto;
+      }
+      .nav::backdrop {
+        background: #100e0b;
+      }
+      .nav[open] {
+        display: flex;
+        flex-direction: column;
+        animation: appear 0.35s ease;
+      }
+      .nav-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 6%;
+        border-bottom: 1px solid var(--line);
+      }
+      .close {
+        background: none;
+        border: 1px solid var(--line);
+        color: var(--gold);
+        width: 48px;
+        height: 48px;
+        font-size: 30px;
+        line-height: 1;
+      }
+      .nav-links {
+        width: min(850px, 88%);
+        margin: auto;
+        padding: 30px 0;
+      }
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        border-bottom: 1px solid var(--line);
+        padding: 8px 0;
+        font: 500 clamp(32px, 6vh, 66px)/1.2 var(--serif);
+        animation: rise 0.5s both;
+        animation-delay: calc(var(--i) * 70ms);
+      }
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+      .nav-links small {
+        font:
+          10px Manrope,
+          sans-serif;
+        color: var(--gold);
+      }
+      .nav-bottom {
+        padding: 18px 6%;
+        color: var(--gold);
+        font-size: 10px;
+        letter-spacing: 0.2em;
+      }
+      .hero {
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        isolation: isolate;
+        padding: 140px 0 90px;
+        overflow: hidden;
+        background: #251b12;
+      }
+      .hero:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background: url("images/img1.jpeg") center/cover;
+        animation: zoom 18s ease-out both;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          linear-gradient(90deg, #100e0bef, #100e0b85 55%, #100e0b30),
+          linear-gradient(0deg, #100e0b99, transparent 50%);
+      }
+      .hero h1 {
+        font-size: clamp(65px, 9vw, 132px);
+        max-width: 850px;
+        margin: 20px 0;
+      }
+      .hero p {
+        max-width: 470px;
+        color: #e5d8c6;
+        margin-bottom: 30px;
+      }
+      .hero .wrap > * {
+        animation: rise 0.9s both;
+      }
+      .hero .wrap > *:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .hero .wrap > *:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .hero .wrap > *:nth-child(4) {
+        animation-delay: 0.45s;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .hero-frame {
+        position: absolute;
+        inset: 100px 3% 25px;
+        border: 1px solid #c9a66455;
+        pointer-events: none;
+      }
+      .strip {
+        border-block: 1px solid var(--line);
+        padding: 19px 5%;
+        display: flex;
+        justify-content: center;
+        gap: clamp(15px, 5vw, 70px);
+        flex-wrap: wrap;
+        color: var(--gold);
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .intro {
+        max-width: 760px;
+        margin: auto;
+      }
+      .intro p {
+        max-width: 550px;
+        margin: 20px auto;
+      }
+      .services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 55px;
+        border-top: 1px solid var(--line);
+      }
+      .service {
+        padding: 30px 22px;
+        border-bottom: 1px solid var(--line);
+        border-right: 1px solid var(--line);
+      }
+      .service:nth-child(3n) {
+        border-right: 0;
+      }
+      .service span {
+        color: var(--gold);
+        font-size: 11px;
+        letter-spacing: 0.2em;
+      }
+      .service h3 {
+        font-size: 34px;
+        margin: 15px 0 10px;
+      }
+      .service:hover h3 {
+        color: var(--gold);
+      }
+      .showcase {
+        background: #18140f;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: 1.15fr 1fr 1fr;
+        gap: 18px;
+        margin-top: 45px;
+        align-items: start;
+      }
+      .photo {
+        margin: 0;
+      }
+      .photo:nth-child(2) {
+        margin-top: 55px;
+      }
+      .photo:nth-child(3) {
+        margin-top: 110px;
+      }
+      .photo button {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 1px solid var(--line);
+        background: #282017;
+        overflow: hidden;
+        border-radius: 48% 48% 0 0 / 28% 28% 0 0;
+      }
+      .photo img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        transition: transform 0.8s;
+      }
+      .photo button:hover img {
+        transform: scale(1.06);
+      }
+      .photo figcaption {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .photo h3 {
+        font-size: 31px;
+      }
+      .photo small {
+        color: var(--gold);
+        letter-spacing: 0.15em;
+        font-size: 9px;
+        text-transform: uppercase;
+      }
+      .founder {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 9%;
+        align-items: center;
+      }
+      .portrait {
+        position: relative;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 48% 48% 0 0 / 30% 30% 0 0;
+      }
+      .portrait img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4/5;
+        object-fit: cover;
+        border-radius: inherit;
+      }
+      .founder h2 {
+        margin: 14px 0 20px;
+      }
+      .founder p + p {
+        margin-top: 16px;
+      }
+      .signature {
+        font: italic 43px var(--serif);
+        color: var(--gold);
+        margin-top: 24px;
+      }
+      .founder-role {
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+      .process {
+        background: #18140f;
+        border-block: 1px solid var(--line);
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        margin-top: 45px;
+      }
+      .steps article {
+        border-top: 1px solid var(--line);
+        padding-top: 20px;
+      }
+      .steps span {
+        font: italic 40px var(--serif);
+        color: var(--gold);
+      }
+      .steps h3 {
+        font-size: 30px;
+        margin: 10px 0;
+      }
+      .booking {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8%;
+        align-items: start;
+      }
+      .booking h2 {
+        margin: 15px 0 20px;
+      }
+      form {
+        display: grid;
+        gap: 14px;
+      }
+      label {
+        display: grid;
+        gap: 5px;
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-width: 0;
+        border: 1px solid var(--line);
+        border-radius: 0;
+        padding: 13px;
+        background: #18140f;
+        color: var(--cream);
+        color-scheme: dark;
+      }
+      textarea {
+        resize: vertical;
+      }
+      .pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 45px 0 25px;
+      }
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: var(--muted);
+      }
+      .copyright {
+        border-top: 1px solid var(--line);
+        margin-top: 30px;
+        padding-top: 20px;
+        font-size: 11px;
+      }
+      .lightbox {
+        background: #18140f;
+        color: var(--cream);
+        border: 1px solid var(--gold);
+        padding: 12px;
+        width: min(800px, 94vw);
+        max-height: 90dvh;
+      }
+      .lightbox::backdrop {
+        background: #000d;
+      }
+      .lightbox img {
+        width: 100%;
+        max-height: 70dvh;
+        object-fit: contain;
+      }
+      .lightbox .close {
+        display: block;
+        margin: 0 0 10px auto;
+      }
+      .reveal.ready {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.8s,
+          transform 0.8s;
+      }
+      .reveal.ready.seen {
+        opacity: 1;
+        transform: none;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @keyframes appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes zoom {
+        from {
+          transform: scale(1.08);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      [hidden] {
+        display: none !important;
+      }
+      @media (max-width: 760px) {
+        .section {
+          padding: 72px 0;
+        }
+        .bar {
+          height: 72px;
+        }
+        .hero-frame {
+          inset: 86px 3% 18px;
+        }
+        .hero h1 {
+          font-size: clamp(58px, 12vw, 90px);
+        }
+        .services {
+          grid-template-columns: 1fr 1fr;
+        }
+        .service:nth-child(3n) {
+          border-right: 1px solid var(--line);
+        }
+        .service:nth-child(2n) {
+          border-right: 0;
+        }
+        .service {
+          padding: 22px 12px;
+        }
+        .service h3 {
+          font-size: 28px;
+        }
+        .gallery {
+          grid-template-columns: 1fr 1fr;
+        }
+        .photo:nth-child(2) {
+          margin-top: 30px;
+        }
+        .photo:nth-child(3) {
+          margin-top: 0;
+          grid-column: 1/-1;
+          width: 65%;
+          margin-inline: auto;
+        }
+        .founder,
+        .booking {
+          grid-template-columns: 1fr;
+          gap: 35px;
+        }
+        .portrait {
+          max-width: 400px;
+          margin: auto;
+        }
+        .steps {
+          grid-template-columns: 1fr 1fr;
+        }
+        .brand {
+          font-size: 24px;
+        }
+        .menu-toggle {
+          gap: 8px;
+        }
+        .nav-links a {
+          font-size: clamp(32px, 7vw, 52px);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *:before,
+        *:after {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+        }
+        .reveal.ready {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="bar">
+        <a class="brand" href="#home"
+          >KCR EVENTS<small>BY RITESH JOSHI · JODHPUR</small></a
+        ><button
+          class="menu-toggle"
+          id="menu"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          Menu
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+      </div>
+    </header>
+    <dialog class="nav" id="nav" aria-label="Main navigation">
+      <div class="nav-top">
+        <a class="brand" href="#home"
+          >KCR EVENTS<small>THE ART OF CELEBRATION</small></a
+        ><button class="close" id="closeMenu" aria-label="Close navigation">
+          ×
+        </button>
+      </div>
+      <nav class="nav-links">
+        <a style="--i: 1" href="#home"><small>01</small> Home</a
+        ><a style="--i: 2" href="#services"><small>02</small> Our expertise</a
+        ><a style="--i: 3" href="#gallery"><small>03</small> Celebrations</a
+        ><a style="--i: 4" href="#founder"><small>04</small> Our founder</a
+        ><a style="--i: 5" href="#book"><small>05</small> Plan your event</a>
+      </nav>
+      <div class="nav-bottom">JODHPUR · RAJASTHAN · INDIA</div>
+    </dialog>
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-frame"></div>
+        <div class="wrap">
+          <div class="eyebrow">The art of celebration · Jodhpur</div>
+          <h1>Moments made<br /><em>Majestic.</em></h1>
+          <p>
+            Rooted in the grandeur of Rajasthan. Thoughtfully designed weddings,
+            extraordinary events and celebrations that feel unmistakably yours.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#book">Begin your celebration ↗</a
+            ><a class="btn ghost" href="#gallery">Explore our style</a>
+          </div>
+        </div>
+      </section>
+      <div class="strip">
+        <span>Royal weddings</span><span>✦</span><span>Bespoke events</span
+        ><span>✦</span><span>Exceptional experiences</span>
+      </div>
+      <section class="section" id="services">
+        <div class="wrap">
+          <div class="intro center reveal">
+            <div class="eyebrow">Our expertise</div>
+            <div class="ornament">✧</div>
+            <h2>Every detail.<br /><em>Every emotion.</em></h2>
+            <p>
+              From the first conversation to the final farewell, we bring
+              design, planning and production together.
+            </p>
+          </div>
+          <div class="services reveal">
+            <article class="service">
+              <span>01 / WEDDINGS</span>
+              <h3>Royal Weddings</h3>
+              <p>
+                Destination celebrations, mandaps and thoughtful guest
+                experiences.
+              </p>
+            </article>
+            <article class="service">
+              <span>02 / FESTIVITIES</span>
+              <h3>Haldi & Sangeet</h3>
+              <p>Colourful traditions, music and immersive decor.</p>
+            </article>
+            <article class="service">
+              <span>03 / BUSINESS</span>
+              <h3>Corporate Events</h3>
+              <p>Conferences, launches and elegant business gatherings.</p>
+            </article>
+            <article class="service">
+              <span>04 / ENTERTAINMENT</span>
+              <h3>Live Experiences</h3>
+              <p>
+                Artist coordination, stage design and entertainment planning.
+              </p>
+            </article>
+            <article class="service">
+              <span>05 / OCCASIONS</span>
+              <h3>Private Celebrations</h3>
+              <p>Intimate milestones, birthdays and bespoke gatherings.</p>
+            </article>
+            <article class="service">
+              <span>06 / DESIGN</span>
+              <h3>Decor & Production</h3>
+              <p>
+                Concept styling, floral design, lighting and event coordination.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section showcase" id="gallery">
+        <div class="wrap">
+          <div class="center reveal">
+            <div class="eyebrow">Celebration inspiration</div>
+            <div class="ornament">✧</div>
+            <h2>Designed to <em>be felt.</em></h2>
+            <p>A glimpse into the visual language of KCR Events.</p>
+          </div>
+          <div class="gallery reveal">
+            <figure class="photo">
+              <button type="button" aria-label="View royal wedding image">
+                <img
+                  src="images/wedding.jpg"
+                  alt="Royal wedding concept"
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                <small>01 · Timeless grandeur</small>
+                <h3>The Royal Wedding</h3>
+              </figcaption>
+            </figure>
+            <figure class="photo">
+              <button type="button" aria-label="View sangeet image">
+                <img
+                  src="images/sangeet.jpg"
+                  alt="Sangeet celebration concept"
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                <small>02 · After dark</small>
+                <h3>A Night of Magic</h3>
+              </figcaption>
+            </figure>
+            <figure class="photo">
+              <button type="button" aria-label="View haldi image">
+                <img
+                  src="images/haldi.jpg"
+                  alt="Haldi decor concept"
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                <small>03 · Colour and culture</small>
+                <h3>Golden Traditions</h3>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="founder">
+        <div class="wrap founder reveal">
+          <div class="portrait">
+            <img
+              src="images/founder.jpg"
+              alt="Founder portrait placeholder"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <div class="eyebrow">Our founder · The vision behind KCR</div>
+            <div class="ornament">✧</div>
+            <h2>Meet<br /><em>Ritesh Joshi.</em></h2>
+            <p>
+              At the heart of KCR Events is Ritesh Joshi, bringing a
+              Jodhpur-rooted perspective to the art of event planning and
+              celebration design.
+            </p>
+            <p>
+              The philosophy is simple: honour the occasion, understand the
+              people and give every detail a purpose. From royal wedding
+              concepts to contemporary gatherings, KCR Events aims to create
+              experiences that feel personal, elegant and memorable.
+            </p>
+            <div class="signature">Ritesh Joshi</div>
+            <div class="founder-role">Founder · KCR Events, Jodhpur</div>
+          </div>
+        </div>
+      </section>
+      <section class="section process">
+        <div class="wrap">
+          <div class="center reveal">
+            <div class="eyebrow">The planning journey</div>
+            <div class="ornament">✧</div>
+            <h2>From vision <em>to reality.</em></h2>
+          </div>
+          <div class="steps reveal">
+            <article>
+              <span>01.</span>
+              <h3>Discover</h3>
+              <p>Understand your occasion and preferences.</p>
+            </article>
+            <article>
+              <span>02.</span>
+              <h3>Design</h3>
+              <p>Shape a concept around your vision.</p>
+            </article>
+            <article>
+              <span>03.</span>
+              <h3>Plan</h3>
+              <p>Coordinate details, vendors and timelines.</p>
+            </article>
+            <article>
+              <span>04.</span>
+              <h3>Celebrate</h3>
+              <p>Bring the experience together on the day.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="book">
+        <div class="wrap booking reveal">
+          <div>
+            <div class="eyebrow">Your story begins here</div>
+            <div class="ornament">✧</div>
+            <h2>Let’s create<br /><em>something royal.</em></h2>
+            <p>
+              Tell us about your upcoming celebration. Together, we can shape an
+              experience around your vision.
+            </p>
+          </div>
+          <form id="enquiry">
+            <label
+              >Your name<input
+                name="Name"
+                autocomplete="name"
+                required /></label
+            ><label
+              >Phone / WhatsApp<input
+                name="Phone"
+                type="tel"
+                autocomplete="tel"
+                required
+            /></label>
+            <div class="pair">
+              <label
+                >Event type<select name="Event" required>
+                  <option value="">Select event</option>
+                  <option>Wedding</option>
+                  <option>Haldi / Sangeet</option>
+                  <option>Corporate event</option>
+                  <option>Live event</option>
+                  <option>Private celebration</option>
+                  <option>Other</option>
+                </select></label
+              ><label>Preferred date<input name="Date" type="date" /></label>
+            </div>
+            <label
+              >Tell us about your event<textarea
+                name="Details"
+                rows="3"
+              ></textarea></label
+            ><button class="btn" type="submit">Prepare enquiry ↗</button>
+            <p id="status" role="status"></p>
+            <textarea
+              id="preview"
+              aria-label="Prepared enquiry"
+              readonly
+              hidden
+              rows="6"
+            ></textarea>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        <div class="footer-row">
+          <div>
+            <a class="brand" href="#home"
+              >KCR EVENTS<small>BY RITESH JOSHI</small></a
+            >
+            <p>Jodhpur, Rajasthan, India</p>
+          </div>
+          <div class="footer-links">
+            <a href="#services">Expertise</a><a href="#founder">Our founder</a
+            ><a href="#book">Enquiries</a><a id="instagram" hidden>Instagram</a
+            ><a id="whatsapp" hidden>WhatsApp</a>
+          </div>
+        </div>
+        <p class="copyright">
+          © <span id="year"></span> KCR Events. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <dialog class="lightbox" id="lightbox" aria-label="Image preview">
+      <button class="close" aria-label="Close image">×</button><img alt="" />
+    </dialog>
+    <script>
+      const CONFIG = { whatsapp: "", instagram: "" };
+      const $ = (id) => document.getElementById(id);
+      const nav = $("nav"),
+        menu = $("menu");
+      menu.addEventListener("click", () => {
+        nav.showModal();
+        document.body.classList.add("lock");
+        menu.setAttribute("aria-expanded", "true");
+      });
+      $("closeMenu").onclick = () => nav.close();
+      nav
+        .querySelectorAll("a")
+        .forEach((a) => a.addEventListener("click", () => nav.close()));
+      nav.addEventListener("close", () => {
+        document.body.classList.remove("lock");
+        menu.setAttribute("aria-expanded", "false");
+      });
+      const light = $("lightbox");
+      document.querySelectorAll(".photo button").forEach(
+        (b) =>
+          (b.onclick = () => {
+            const img = b.querySelector("img");
+            light.querySelector("img").src = img.src;
+            light.querySelector("img").alt = img.alt;
+            light.showModal();
+            document.body.classList.add("lock");
+          }),
+      );
+      light.querySelector("button").onclick = () => light.close();
+      light.addEventListener("click", (e) => {
+        if (e.target === light) light.close();
+      });
+      light.addEventListener("close", () =>
+        document.body.classList.remove("lock"),
+      );
+      if (
+        "IntersectionObserver" in window &&
+        !matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
+        const observer = new IntersectionObserver(
+          (entries) =>
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add("seen");
+                observer.unobserve(e.target);
+              }
+            }),
+          { threshold: 0.08 },
+        );
+        document.querySelectorAll(".reveal").forEach((el) => {
+          el.classList.add("ready");
+          observer.observe(el);
+        });
+      }
+      const validPhone = /^\d{8,15}$/.test(CONFIG.whatsapp);
+      if (validPhone) {
+        $("whatsapp").href = "https://wa.me/" + CONFIG.whatsapp;
+        $("whatsapp").hidden = false;
+      }
+      if (CONFIG.instagram) {
+        $("instagram").href = CONFIG.instagram;
+        $("instagram").hidden = false;
+      }
+      $("year").textContent = new Date().getFullYear();
+      $("enquiry").onsubmit = (e) => {
+        e.preventDefault();
+        const msg =
+          "Hello KCR Events, I would like to plan an event.\n" +
+          Array.from(
+            new FormData(e.target),
+            ([k, v]) => k + ": " + (v || "Not specified"),
+          ).join("\n");
+        $("preview").value = msg;
+        $("preview").hidden = false;
+        if (validPhone) {
+          window.open(
+            "https://wa.me/" +
+              CONFIG.whatsapp +
+              "?text=" +
+              encodeURIComponent(msg),
+            "_blank",
+            "noopener",
+          );
+          $("status").textContent =
+            "Enquiry prepared. Send it in WhatsApp to complete your request.";
+        } else {
+          $("status").textContent =
+            "Sample enquiry prepared below. No message has been sent; business WhatsApp is not configured.";
+        }
+      };
+    </script>
+  </body>
+</html>
